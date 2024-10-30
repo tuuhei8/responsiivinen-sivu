@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+    --teksti: #333333;
+    --tausta: #eeeeee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Yleiskäyttö */
+
+/* Vertikaalinen */
+
+.v-center {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+/* Horisontaalinen */
+
+.h-right {
+    position: absolute;
+    right: 5px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: 'lato', sans-serif;
+    background-color: var(--tausta);
+    color: var(--teksti);
+}
+
+/* Header */
+
+header {
+    background-color: #444444;
+    padding: 10px;
+    color: #eeeeee;
+    height: 100px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    border-bottom: solid yellowgreen 5px;
+}
+
+header .logo {
+    font-size: 2em;
+}
+
+nav a {
+    display: inline-block;
+    color: #eeeeee;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 0.5em;
+    border-radius: 50px;
+}
+
+header nav a.active {
+    background-color: green;
+}
+
+header nav a:hover:not(.active) {
+    background-color: yellowgreen;
+    color: var(--teksti);
+}
+
+.highlight {
+    color: yellowgreen;
+    display: inline-block;
+    transform: rotate(10deg);
+}
+
+/* Main */
+
+main {
+    padding-top: 90px;
+    font-size: 1em;
+    line-height: 1.6em;
+}
+
+section {
+    max-width: 1100px;
+    width: 70%;
+    margin: 20px auto;
+}
+
+/* Footer */
+
+footer {
+    margin-top: auto;
+    background-color: #444444;
+    color: #eeeeee;
+    padding: 40px;
+    text-align: center;
+}
+
+/* Ammattitaitovaatimukset */
+.vaatimukset {
+    padding: 0;
+}
+
+.vaatimukset > li {
+    list-style-type: none;
+}
+
+.vaatimukset > li > ul {
+    border-left: 5px solid yellowgreen;
+}
+
+.vaatimukset > li > ul > li {
+    padding: 0;
+    list-style-type: square;
+}
+
+/* Kriteerit */
+
+.kriteerit {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    line-height: 1.5em;
+}
+
+
+.kriteerit > div > ul {
+    border-left: 3px solid yellowgreen; 
+}
+
+/* Ohut ikkuna */
+@media only screen and (max-width: 1040px) and (min-width: 801px){
+
+    header {
+        transform: none;
+        height: 200px;
+    }
+
+    header nav a {
+        font-size: 1.3em;
+    }
+
+    .v-center, .h-right {
+        position: relative;
+    }
+
+    main {
+        padding-top: 190px;
+    }
+}
+
+/* Mobiili */
+@media only screen and (max-width: 800px) {
+
+    header,
+    header > div.logo,
+    header > nav,
+    header nav a {
+        display: block;
+        float: none;
+        height: auto;
+        width: 100%;
+        text-align: center;
+        clear: both;
+        position: relative;
+    }
+
+    header a {
+        padding: 5px 0;
+        border-radius: 0;
+    }
+
+    .v-center, .h-right {
+        display: block;
+        position: relative;
+        transform: none;
+        right: 0;
+    }
+
+    main {
+        padding: 0;
+    }
+
+    .kriteerit {
+        grid-template-columns: auto;
+        border: none;
+    }
+
+    .kriteerit > div {
+        border-bottom: none;
+    }
+
+    .piilotettava {
+        display: none;
+    }
+}
